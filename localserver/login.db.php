@@ -5,7 +5,7 @@ if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $data = "SELECT * FROM register WHERE username='$username' AND password = '$password'";
+    $data = "SELECT * FROM files WHERE username='$username' AND password = '$password'";
 	$result = mysqli_query($conn,$data);
     $row = mysqli_fetch_assoc($result);
     if($row['username'] == $username && $row['password'] == $password){
