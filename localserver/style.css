@@ -1,0 +1,53 @@
+body{
+    background:white;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .buttons{
+      float:right;
+  }
+  .sortby{
+      float:right;
+      margin-right: 20px;
+  }
+  .searchbar input{
+      width:500px;
+  }
+  /* Login page */
+
+  .login{
+      width:300px;
+      background:#e6e8eb;
+      margin-top: 200px;
+      margin-left: 500px;
+      padding:10px;
+  }
+  .login .txtbox{
+      padding:10px;
+  }
+  .login .loginbtn{
+      margin-left:120px;
+      border:none;
+      padding:10px;
+      cursor: pointer;
+      background-color: goldenrod;
+      margin-top: 20px;
+  }
+  .login .loginbtn:hover{
+      background:indianred;
+      color:white;
+  }
