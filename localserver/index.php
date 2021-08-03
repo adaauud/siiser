@@ -59,7 +59,6 @@ if(isset($_POST['register'])){
         ?>
         <div class="buttons">
             <form action="" method="POST" enctype="multipart/form-data">
-                <?php echo $username; ?>
                 <input type="file" name="file">
                 <input type="submit" value="Upload Image" />
                 <button name="logout">logout</button>
@@ -77,8 +76,14 @@ if(isset($_POST['register'])){
             </select>
         </div>
         <div class="searchbar">
+            <?php echo $username; ?>
             <input type="search" name="search" placeholder="Search by......">
         </div>
+        <?php
+      $mysqli = mysqli_connect("us-cdbr-east-04.cleardb.com","bd0f0b0d31a624","ab3b2b6a","heroku_e4df9ee799f1a28");
+		$data = "SELECT * FROM register WHERE code = '$code'";
+		$result = mysqli_query($mysqli,$data);
+        ?>
         <table>
             <tr>
                 <th>Name</th>
@@ -87,6 +92,9 @@ if(isset($_POST['register'])){
                 <th>Uploaded By</th>
                 <th>Download</th>
             </tr>
+            <?php
+		        while ($row = mysqli_fetch_assoc($result)):
+	        ?>
             <tr>
                 <td><?php  echo $row['name']?></td>
                 <td><?php echo $row['size'] ?></td>
@@ -94,6 +102,9 @@ if(isset($_POST['register'])){
                 <td><?php echo $row['uploadedby']?></td>
                 <td> <a href="uploads/es.pdf" download>Download </a></td>
             </tr>
+            <?php
+        endwhile;
+        ?>
         </table>
     </body>
 </html>
