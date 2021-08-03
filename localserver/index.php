@@ -31,6 +31,16 @@ if(isset($_FILES['file'])){
     VALUES ( '$file_name','$file_size','$date','$code')";
     mysqli_query($mysqli, $sql);
     }
+if(isset($_POST['login'])){
+    session_start();
+    unset($_SESSION);
+    session_destroy();
+    session_write_close();
+    header('Location: /localserver/login.php');
+}
+if(isset($_POST['register'])){
+    header('location: \localserver/register.php');
+}
 ?>
 <html>
     <head>
@@ -49,8 +59,14 @@ if(isset($_FILES['file'])){
             </form>
         </div>
         <?php
-        }else{}
+        }else{
         ?>
+        <div class="buttons">
+            <form method="post">
+                <button name="login">Login</button>
+                <button name="register">Register</button>
+            </form>
+        </div>
         <div class="sortby">
             <label>Sort By</label>
             <select>
