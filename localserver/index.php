@@ -14,6 +14,23 @@ if(isset($_POST['logout'])){
     header('Location: /localserver/login.php');
 die;
 }
+#  File Upload Code
+if(isset($_FILES['file'])){
+    $errors= array();
+    $file_name = $_FILES['file']['name'];
+    $file_size =$_FILES['file']['size'];
+    $file_tmp =$_FILES['file']['tmp_name'];
+    $file_type=$_FILES['file']['type'];
+    $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+    move_uploaded_file($file_tmp,"uploads/".$file_name);
+    echo "Success";
+    $image = $_FILES["file"]["name"]; 
+    $img = "uploads/".$image;
+    $date = date("Y/m/d") ;
+    $sql = "INSERT INTO register (name,size,uploadeddate, uploadedby)
+    VALUES ( '$file_name','$file_size','$date','$code')";
+    mysqli_query($mysqli, $sql);
+    }
 ?>
 <html>
     <head>
@@ -21,6 +38,9 @@ die;
         <link rel="stylesheet" href="style.css">
     </head>
     <body> 
+        <?php  
+        if($_SESSION['username']){
+        ?>
         <div class="buttons">
             <form action="" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file">
@@ -28,6 +48,9 @@ die;
                 <button name="logout">logout</button>
             </form>
         </div>
+        <?php
+        }else{}
+        ?>
         <div class="sortby">
             <label>Sort By</label>
             <select>
