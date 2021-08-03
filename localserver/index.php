@@ -32,10 +32,6 @@ if(isset($_FILES['file'])){
     mysqli_query($mysqli, $sql);
     }
 if(isset($_POST['login'])){
-    session_start();
-    unset($_SESSION);
-    session_destroy();
-    session_write_close();
     header('Location: /localserver/login.php');
 }
 if(isset($_POST['register'])){
@@ -49,22 +45,22 @@ if(isset($_POST['register'])){
     </head>
     <body> 
         <?php  
-        if($_SESSION['username']){
+        if(!$_SESSION['username']){
         ?>
-        <div class="buttons">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file">
-                <input type="submit" value="Upload Image" />
-                <button name="logout">logout</button>
+         <div class="buttons">
+            <form method="post">
+                <button name="login">Login</button>
+                <button name="register">Register</button>
             </form>
         </div>
         <?php
         }else{
         ?>
         <div class="buttons">
-            <form method="post">
-                <button name="login">Login</button>
-                <button name="register">Register</button>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload Image" />
+                <button name="logout">logout</button>
             </form>
         </div>
         <?php
