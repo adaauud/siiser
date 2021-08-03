@@ -2,7 +2,7 @@
 include_once('login.db.php');
 $mysqli = mysqli_connect("us-cdbr-east-04.cleardb.com","bd0f0b0d31a624","ab3b2b6a","heroku_e4df9ee799f1a28");
 
-
+$username = $_SESSION['username'];
 $sql = "SELECT * FROM files WHERE username='$username'";
 $result = mysqli_query($mysqli,$sql);
 $row = mysqli_fetch_assoc($result);
@@ -59,6 +59,7 @@ if(isset($_POST['register'])){
         ?>
         <div class="buttons">
             <form action="" method="POST" enctype="multipart/form-data">
+                <?php echo $username; ?>
                 <input type="file" name="file">
                 <input type="submit" value="Upload Image" />
                 <button name="logout">logout</button>

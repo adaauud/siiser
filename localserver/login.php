@@ -12,7 +12,7 @@ include_once('login.db.php')
             <label>Username: </label>
             <input class="txtbox" type="text" name="username" placeholder="Enter username">
             <label>Password: </label>
-            <input class="txtbox" type="text" name="password" placeholder="Enter password"><br>
+            <input class="txtbox" type="password" name="password" placeholder="Enter password"><br>
             <input class="loginbtn" type="submit" name="login">
         </form>
     </body>
