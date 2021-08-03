@@ -76,12 +76,12 @@ if(isset($_POST['register'])){
             </select>
         </div>
         <div class="searchbar">
-            <?php echo $username; ?>
+            <?php echo $code; ?>
             <input type="search" name="search" placeholder="Search by......">
         </div>
         <?php
       $mysqli = mysqli_connect("us-cdbr-east-04.cleardb.com","bd0f0b0d31a624","ab3b2b6a","heroku_e4df9ee799f1a28");
-		$data = "SELECT * FROM register WHERE code = '$code'";
+		$data = "SELECT * FROM register WHERE  uploadedby = '$code'";
 		$result = mysqli_query($mysqli,$data);
         ?>
         <table>
