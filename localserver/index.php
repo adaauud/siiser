@@ -67,6 +67,9 @@ if(isset($_POST['register'])){
                 <button name="register">Register</button>
             </form>
         </div>
+        <?php
+        }
+        ?>
         <div class="sortby">
             <label>Sort By</label>
             <select>
