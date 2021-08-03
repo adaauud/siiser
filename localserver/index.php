@@ -100,7 +100,7 @@ if(isset($_POST['register'])){
                 <td><?php echo $row['size'] ?></td>
                 <td><?php   echo $row['uploadeddate']?></td>
                 <td><?php echo "me"; ?></td>
-                <td> <a href="uploads/"<?php echo $row['name'];?> download>Download </a></td>
+                <td> <a href="uploads/<?php echo $row['name'];?>" download>Download </a></td>
             </tr>
             <?php
         endwhile;
