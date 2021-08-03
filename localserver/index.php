@@ -1,7 +1,8 @@
 <?php
+include_once('login.db.php');
 $mysqli = mysqli_connect("us-cdbr-east-04.cleardb.com","bd0f0b0d31a624","ab3b2b6a","heroku_e4df9ee799f1a28");
 
-$username = $_SESSION['username'];
+
 $sql = "SELECT * FROM files WHERE username='$username'";
 $result = mysqli_query($mysqli,$sql);
 $row = mysqli_fetch_assoc($result);
